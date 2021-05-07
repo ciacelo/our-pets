@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  color: #333;
+  --type-firts: Helvetica, Arial, sans-serif;
+  --type-sencond: 'Spectral', Georgia;
+  font-family: var(--type-firts);
+  padding-top: 4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0px;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  display: block;
+  font-size: 1rem;
+  font-family: var(--type-firts);
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 50rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
