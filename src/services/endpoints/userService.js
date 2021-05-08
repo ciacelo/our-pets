@@ -3,7 +3,7 @@ import api from '../api';
 export const getUser = async ({ TOKEN }) => {
   let response = await api({
     url: 'api/user',
-    method: 'POST',
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${TOKEN}`,
     },
@@ -65,12 +65,9 @@ export const statsGet = async ({ TOKEN }) => {
   return response;
 };
 
-
-
 /* PASSWORD SERVICES */
 export const passwordLostPost = async ({ login, url }) => {
   let response = await api({
     url: 'api/password/lost',
-    
-  })
-}
+  });
+};
