@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
+import { UserContext } from '../UserContext';
 
 import './login.scss';
 import LoginCreate from './LoginCreate';
@@ -8,6 +9,12 @@ import LoginForm from './LoginForm';
 import LoginResetPassword from './LoginResetPassword';
 
 const Login = () => {
+  const { login } = React.useContext(UserContext);
+
+  if (login === true) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <div>
       <Routes>

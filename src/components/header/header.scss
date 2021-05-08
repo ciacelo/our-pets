@@ -35,5 +35,19 @@
         top: -1px;
       }
     }
+
+    .button-logout {
+      background: none;
+      border: none;
+      color: rgba(29, 27, 27, 0.857);
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        color: rgb(67, 65, 65);
+        outline: none;
+        text-shadow: 0 0 3px #ccc;
+      }
+    }
   }
 }
