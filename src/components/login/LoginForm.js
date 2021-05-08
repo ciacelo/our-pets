@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
-import { tokenPost } from '../../services/endpoints/authService';
-import { getUser } from '../../services/endpoints/userService';
 import Button from '../forms/Button';
 import Input from '../forms/Input';
+import Error from '../helpers/Error';
 import { UserContext } from '../UserContext';
 const LoginForm = () => {
   const username = useForm();
@@ -15,32 +14,14 @@ const LoginForm = () => {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      // let response = await tokenPost({ //TODO: reescrevendo essa função utilizando o contextAPI
-      //   username: username.value,
-      //   password: password.value,
-      // });
-      // console.log(response);
-      // if (response.status === 200) {
-      //   window.localStorage.setItem('token', response.data.token);
-      // }
       userLogin({ username: username.value, password: password.value });
     }
-    // console.log(response);
   }
 
-  // React.useEffect(() => {
-  //   if (error) {
-  //     alert('Error: ', error);
-  //   }
-  // }, [error]);
-
   return (
-    <section id="login-form">
-      <h1>Login</h1>
-      <form
-        onSubmit={handleSubmit}
-        style={{ margin: '20px auto', maxWidth: '500px' }}
-      >
+    <section id="login-form" className="animeLeft">
+      <h1 className="title">Login</h1>
+      <form onSubmit={handleSubmit} style={{ margin: '20px auto' }}>
         <Input
           label="Usuário"
           type="text"
@@ -58,14 +39,19 @@ const LoginForm = () => {
 
         <div className="row-actions">
           <Button disabled={loading}>Entrar</Button>
-          {error && (
-            <p>
-              <strong>{error}</strong>
-            </p>
-          )}
-          <Link to="/login/criar">Criar uma conta?</Link>
+          {error && <Error error={error} />}
         </div>
       </form>
+      <Link className="link-forget" to="/login/esqueceu">
+        Esqueceu a senha?
+      </Link>
+      <div className="link-register">
+        <h2 className="subtitle">Cadastre-se</h2>
+        <p>Ainda não possui conta? Cadastre-se no site.</p>
+        <Link className="button-form" to="/login/criar">
+          Criar
+        </Link>
+      </div>
     </section>
   );
 };

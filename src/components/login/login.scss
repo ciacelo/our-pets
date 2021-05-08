@@ -1,7 +1,79 @@
+#login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  gap: 2rem;
+  &::before {
+    display: block;
+    content: '';
+    background: url(../../assets//login.jpg) no-repeat center center;
+    background-size: cover;
+  }
+
+  .forms {
+    max-width: 30rem;
+    padding: 2rem;
+  }
+
+  @media screen and (max-width: 40rem) {
+    grid-template-columns: 1fr;
+
+    &::before {
+      display: none;
+    }
+
+    .forms {
+      max-width: 100%;
+      padding: 1.5rem 1rem;
+    }
+  }
+}
+
 #login-form {
+  // padding: 1rem;
+  // max-width: 600px;
+  margin: auto;
   .row-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .link-forget {
+    display: inline-block;
+    color: #666;
+    padding: 0.5rem 0;
+    line-height: 1;
+
+    &::after {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background: currentColor;
+      display: block;
+    }
+  }
+
+  .link-register {
+    margin-top: 4rem;
+
+    p {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .subtitle {
+    font-family: var(--type-sencond);
+    line-height: 1;
+    font-size: 2rem;
+
+    &::after {
+      content: '';
+      display: block;
+      background: #ddd;
+      height: 0.5rem;
+      width: 3rem;
+      border-radius: 0.2rem;
+    }
   }
 }

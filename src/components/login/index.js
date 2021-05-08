@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router';
 import { UserContext } from '../UserContext';
 
 import './login.scss';
+import '../forms/button.scss';
 import LoginCreate from './LoginCreate';
 import LoginForgetPassword from './LoginForgetPassword';
 import LoginForm from './LoginForm';
@@ -16,14 +17,16 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="criar" element={<LoginCreate />} />
-        <Route path="recuperar" element={<LoginForgetPassword />} />
-        <Route path="resetar" element={<LoginResetPassword />} />
-      </Routes>
-    </div>
+    <section id="login">
+      <div className="forms">
+        <Routes>
+          <Route path="/" element={<LoginForm />} />
+          <Route path="criar" element={<LoginCreate />} />
+          <Route path="recuperar" element={<LoginForgetPassword />} />
+          <Route path="resetar" element={<LoginResetPassword />} />
+        </Routes>
+      </div>
+    </section>
   );
 };
 

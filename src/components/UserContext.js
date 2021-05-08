@@ -6,7 +6,7 @@ import {
 import { getUser } from '../services/endpoints/userService';
 import { useNavigate } from 'react-router-dom';
 
-export const UserContext = React.createContext();
+export const UserContext = React.createContext(); //context API
 
 export const UseStorage = ({ children }) => {
   const [data, setData] = React.useState(null);
@@ -16,6 +16,7 @@ export const UseStorage = ({ children }) => {
   const navigate = useNavigate();
 
   const userLogout = React.useCallback(
+    //NOTE: used in a useEffect
     async function userLogout() {
       setData(null);
       setError(null);
@@ -37,12 +38,13 @@ export const UseStorage = ({ children }) => {
         password,
       });
       if (responseToken.status !== 200)
-        throw new Error(`Erro: ${responseToken.data.message}`);
+        throw new Error(`${responseToken.data.message}`);
       const { token } = responseToken.data;
       window.localStorage.setItem('token', token);
       await userGet(token);
       navigate('/');
     } catch (error) {
+      console.log(error.message);
       setError(error.message);
       setLogin(false);
     } finally {
@@ -73,10 +75,12 @@ export const UseStorage = ({ children }) => {
           await userGet(token);
         } catch (error) {
           // console.log(error);
-          userLogout();
+          userLogout(); //NOTE: a useCallback
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false);
       }
     }
     autoLogin();

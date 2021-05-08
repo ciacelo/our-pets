@@ -6,6 +6,8 @@ import Header from './components/header/Header';
 import Home from './components/home/Home';
 import Login from './components/login';
 import { UseStorage } from './components/UserContext';
+import User from './components/user';
+import ProtectedRouter from './components/helpers/ProtectedRouter';
 // import Login from './pages/login';
 // import Register from './pages/register';
 
@@ -17,7 +19,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login/*" element={<Login />} />
+            <Route path="login/*" element={<Login />} />
+            <ProtectedRouter path="conta/*" element={<User />} />
           </Routes>
           <Footer />
         </UseStorage>
