@@ -1,6 +1,6 @@
 # React App - Project:
 
-## Our dogs
+## Our pets
 
 This project has for objective to study development of React and its structure. With a focus on clean code architecture,
 TDD and SAGA Pattern.
