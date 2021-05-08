@@ -1,23 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
 import { tokenPost } from '../../services/endpoints/authService';
 import Button from '../forms/Button';
 import Input from '../forms/Input';
 
 const LoginForm = () => {
-  const [formData, setFormData] = React.useState({
-    username: '',
-    password: '',
-    email: '',
-  });
+  const username = useForm('email');
+  const password = useForm();
+
+  // console.log(username.validate());
+  // const [formData, setFormData] = React.useState({
+  //   username: '',
+  //   password: '',
+  //   email: '',
+  // });
 
   async function handleSubmit(event) {
     event.preventDefault();
-    let response = await tokenPost({
-      username: formData.username,
-      password: formData.password,
-    });
-    console.log(response);
+
+    if (username.validate() && password.validate()) {
+      let response = await tokenPost({
+        username: username,
+        password: password,
+      });
+      console.log(response);
+    }
+
+    // console.log(response);
   }
   return (
     <section>
@@ -25,26 +35,20 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit} style={{ margin: '20px auto' }}>
         <Input
           label="Usuário"
-          type="text"
+          type="email"
           placeholder="usuário"
           name="username"
-          value={formData.username}
-          onChange={({ target }) =>
-            setFormData({ ...formData, username: target.value })
-          }
+          {...username}
         />
         <Input
           label="Senha"
           type="password"
           placeholder="senha"
           name="password"
-          value={formData.password}
-          onChange={({ target }) =>
-            setFormData({ ...formData, password: target.value })
-          }
+          {...password}
         />
 
-        <Button disabled={true}>Entrar</Button>
+        <Button>Entrar</Button>
       </form>
       <Link to="/login/criar">Criar</Link>
     </section>

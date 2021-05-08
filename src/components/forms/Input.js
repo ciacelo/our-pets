@@ -1,7 +1,16 @@
 import React from 'react';
 import './input.scss';
 
-const Input = ({ label, placeholder, value, type, name, onChange }) => {
+const Input = ({
+  label,
+  placeholder,
+  value,
+  type,
+  name,
+  onChange,
+  error,
+  onBlur,
+}) => {
   return (
     <div className="input-label-form">
       <label className="label-form" htmlFor={name}>
@@ -15,8 +24,9 @@ const Input = ({ label, placeholder, value, type, name, onChange }) => {
         name={name}
         onChange={onChange}
         className="input-form"
+        onBlur={onBlur}
       />
-      <p className="alert-error-form">error</p>
+      {error && <p className="alert-error-form">{error}</p>}
     </div>
   );
 };
