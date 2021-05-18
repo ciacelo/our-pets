@@ -1,3 +1,38 @@
+#user-header-nav-mobileButton {
+  &.mobileButton {
+    background: #eee;
+    border-radius: 0.2rem;
+    height: 40px;
+    width: 40px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    transition: 0.1s;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 1.2rem;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+      box-shadow: 0 6px currentColor, 0 -6px currentColor;
+    }
+
+    &:focus,
+    &:hover {
+      outline: none;
+      background: white;
+      box-shadow: 0 0 0 3px #fea;
+      border-color: #fb1;
+      color: #fb1;
+    }
+  }
+}
+
 #user-header-nav.nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
