@@ -15,7 +15,7 @@ export const useRequest = () => {
       data = response.data;
       if (response.status !== 200) throw new Error(response.data.message);
     } catch (error) {
-      console.log('ERRANDO: ', error.message);
+      console.log('ERRADO: ', error.message);
       data = null;
       setError(error.message);
     } finally {

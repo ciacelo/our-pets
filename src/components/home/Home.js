@@ -1,15 +1,13 @@
 import React from 'react';
+import Feed from '../feed/Feed';
 
 import './home.scss';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-      <p>
-        bem-vindo, <br /> :D
-      </p>
-    </div>
+    <section id="home-component" className="container mainContainer">
+      <Feed />
+    </section>
   );
 };
 
