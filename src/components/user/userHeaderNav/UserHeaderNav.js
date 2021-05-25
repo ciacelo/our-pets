@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 import { ReactComponent as MyPhotos } from '../../../assets/feed.svg';
 import { ReactComponent as Stats } from '../../../assets/estatisticas.svg';
@@ -12,18 +12,22 @@ const UserHeaderNav = () => {
   const { userLogout } = React.useContext(UserContext);
   const mobile = useMedia('(max-width: 40rem)');
   const [mobileMenu, setMobileMenu] = React.useState(false);
+  const {pathname} = useLocation();
 
+  React.useEffect(() => {
+    setMobileMenu(false)
+  }, [pathname])
   return (
     <>
       {mobile && (
         <button
-          className="mobileButton"
+          className={`mobileButton ${mobileMenu && 'mobileButtonActive'}`}
           id="user-header-nav-mobileButton"
           aria-label="Menu"
           onClick={() => setMobileMenu(!mobileMenu)}
         ></button>
       )}
-      <nav id="user-header-nav" className="nav">
+      <nav id="user-header-nav" className={`${mobile ? 'navMobile' : 'nav'} ${mobileMenu && 'navMobileActive'}`}>
         <NavLink to="/conta" end activeClassName="active">
           <MyPhotos />
           {mobile && 'Minhas Fotos'}
