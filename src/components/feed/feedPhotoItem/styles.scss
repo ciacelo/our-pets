@@ -1,0 +1,48 @@
+#feed-photo-item-component {
+  &.photo {
+    display: grid;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:nth-child(2) {
+      grid-column: 2/4;
+      grid-row: span 2;
+
+      @media (max-width: 40rem) {
+        grid-column: initial;
+        grid-row: initial;
+      }
+    }
+
+    img,
+    .visualization {
+      grid-area: 1/1;
+    }
+
+    .visualization {
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      text-align: center;
+      font-size: 1rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      &::before {
+        width: 16px;
+        height: 10px;
+        content: '';
+        display: inline-block;
+        margin-right: 0.25rem;
+        background: url('../../../assets//visualizacao.svg') no-repeat;
+      }
+    }
+
+    &:hover {
+      .visualization {
+        display: flex;
+      }
+    }
+  }
+}
