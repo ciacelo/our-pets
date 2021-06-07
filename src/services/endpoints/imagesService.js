@@ -13,14 +13,9 @@ export const photoPost = async ({ TOKEN, formData }) => {
   return response;
 };
 
-export const photoGet = async ({ photo_query, photo_id }) => {
-  const { total, page, user } = photo_query;
+export const photoGet = async ({ photo_id }) => {
   let response = await api({
-    url: {
-      photos: 'api/photo',
-      photos_query: `api/photo/?_total=${total}&_page=${page}&_user=${user}`,
-      photo: `api/photo/${photo_id}`,
-    },
+    url: `api/photo/${photo_id}`,
     method: 'GET',
   });
   return response;

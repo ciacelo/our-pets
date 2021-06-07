@@ -6,7 +6,7 @@ import FeedPhotosItem from '../feedPhotoItem';
 import Error from '../../helpers/Error';
 import Loading from '../../helpers/Loading';
 
-const FeedPhotos = () => {
+const FeedPhotos = ({ setModalPhoto }) => {
   const { data, loading, error, request } = useRequest();
 
   React.useEffect(() => {
@@ -30,7 +30,11 @@ const FeedPhotos = () => {
     return (
       <ul id="feed-photos-component" className="feed animeLeft">
         {data.map(photo => (
-          <FeedPhotosItem key={photo.id} photo={photo} />
+          <FeedPhotosItem
+            key={photo.id}
+            photo={photo}
+            setModalPhoto={setModalPhoto}
+          />
         ))}
       </ul>
     );
