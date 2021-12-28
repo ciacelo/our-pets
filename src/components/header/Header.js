@@ -17,7 +17,7 @@ const Header = () => {
         {data ? (
           <>
             <Link className="login" to="/conta">
-              {data.name}{' '}
+              {data.nome}{' '}
             </Link>
             {/* <button onClick={() => userLogout()} className="button-logout">
               Sair
