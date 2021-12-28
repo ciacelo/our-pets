@@ -20,7 +20,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="login/*" element={<Login />} />
-            <ProtectedRouter path="conta/*" element={<User />} />
+            <Route path="conta/*" element={
+              <ProtectedRouter>
+                <User />
+              </ProtectedRouter>
+            } />
           </Routes>
           <Footer />
         </UseStorage>
