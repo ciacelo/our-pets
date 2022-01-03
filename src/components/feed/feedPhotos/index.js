@@ -4,7 +4,7 @@ import { useRequest } from '../../../hooks/useRequest';
 import { photosGet } from '../../../services/endpoints/imagesService';
 import FeedPhotosItem from '../feedPhotoItem';
 import Error from '../../helpers/Error';
-import Loading from '../../helpers/Loading';
+import Loading from '../../helpers/loading';
 
 const FeedPhotos = ({ setModalPhoto }) => {
   const { data, loading, error, request } = useRequest();

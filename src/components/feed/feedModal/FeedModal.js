@@ -4,7 +4,7 @@ import './feedModal.scss';
 import { useRequest } from '../../../hooks/useRequest';
 import { photoGet } from '../../../services/endpoints/imagesService';
 import Error from '../../helpers/Error';
-import Loading from '../../helpers/Loading';
+import Loading from '../../helpers/loading';
 import PhotoContent from '../../photo/photoContent';
 
 const FeedModal = ({ photo, setModalPhoto }) => {
