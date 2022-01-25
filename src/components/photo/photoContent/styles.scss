@@ -18,6 +18,20 @@
         transform: initial;
       }
     }
+
+    &.single {
+      grid-template-columns: 1fr;
+      height: auto;
+
+      .img {
+        grid-row: 1;
+        border-radius: .4rem;
+      }
+
+      .details {
+        padding: 2rem 0px 0px;
+      }
+    }
     .details {
       padding: 2rem 2rem 0 2rem;
       .author {
@@ -69,9 +83,9 @@
     //   grid-row: 1/4;
     // }
 
-    .comments {
-      padding: 0 2rem;
-    }
+    // .comments {
+    //   padding: 0 2rem;
+    // }
 
     @media (max-width: 64rem) {
       height: auto;
