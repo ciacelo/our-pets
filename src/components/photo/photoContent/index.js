@@ -7,12 +7,12 @@ import PhotoDelete from '../photoDelete';
 
 import './styles.scss';
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, single = false }) => {
   const user = React.useContext(UserContext)
   const { photo, comments } = data;
 
   return (
-    <div id="photo-content-component" className="photo">
+    <div id="photo-content-component" className={`photo ${single ? 'single' : ''}`}>
       <div className="img">
         <Image src={photo.src} alt={photo.title} />
       </div>

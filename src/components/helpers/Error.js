@@ -5,7 +5,7 @@ const Error = ({ error }) => {
   if (!error) return null;
   return (
     <p style={{ color: '#f31', margin: '1rem 0', maxWidth: '280px' }}>
-      {error}
+      <div dangerouslySetInnerHTML={{ __html: error }}></div>
     </p>
   );
 };
