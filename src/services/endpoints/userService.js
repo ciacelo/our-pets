@@ -69,5 +69,30 @@ export const statsGet = async ({ TOKEN }) => {
 export const passwordLostPost = async ({ login, url }) => {
   let response = await api({
     url: 'api/password/lost',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: {
+      login,
+      url
+    }
   });
+  return response
+};
+
+export const passwordResetPost = async ({ login, key, password }) => {
+  let response = await api({
+    url: 'api/password/reset',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: {
+      login,
+      key,
+      password
+    }
+  });
+  return response
 };
