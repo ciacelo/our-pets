@@ -5,6 +5,7 @@ import { postUser } from '../../services/endpoints/userService';
 import Button from '../forms/Button';
 import Input from '../forms/Input';
 import Error from '../helpers/Error';
+import Head from '../helpers/Head';
 import { UserContext } from '../UserContext';
 
 const LoginCreate = () => {
@@ -36,6 +37,7 @@ const LoginCreate = () => {
 
   return (
     <section className="animeLeft">
+      <Head title="Criar conta" />
       <h1 className="title">Cadastre-se</h1>
       <form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />

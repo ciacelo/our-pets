@@ -7,6 +7,7 @@ import useForm from '../../../hooks/useForm';
 import { useRequest } from '../../../hooks/useRequest';
 import { photoPost } from '../../../services/endpoints/imagesService';
 import { useNavigate } from 'react-router';
+import Head from '../../helpers/Head';
 
 const UserPhotoPost = () => {
   const name = useForm();
@@ -50,6 +51,7 @@ const UserPhotoPost = () => {
 
   return (
     <section id="user-photo-post-component" className="photoPost animeLeft">
+      <Head title="Postar foto" />
       <form onSubmit={handleSubmit}>
         <Input label="Nome" type="text" name="name" {...name} />
         <Input label="Peso" type="number" name="weight" {...weight} />
@@ -66,7 +68,7 @@ const UserPhotoPost = () => {
         ) : (
           <Button>Enviar</Button>
         )}
-        <Error />
+        {error && <Error />}
       </form>
       <div>
         {img.preview && (

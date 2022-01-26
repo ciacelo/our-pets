@@ -2,6 +2,8 @@ import React from 'react';
 import './feed.scss';
 import FeedModal from './feedModal/FeedModal';
 import FeedPhotos from './feedPhotos';
+import PropTypes from 'prop-types'
+import Head from '../helpers/Head';
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
@@ -37,6 +39,7 @@ const Feed = ({ user }) => {
 
   return (
     <div id="feed-component">
+      <Head title="Fotos" />
       {modalPhoto && (
         <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
@@ -52,5 +55,16 @@ const Feed = ({ user }) => {
     </div>
   );
 };
+
+Feed.defaultProps = {
+  user: 0,
+}
+
+Feed.propTypes = {
+  user: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ])
+}
 
 export default Feed;
