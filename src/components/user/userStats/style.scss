@@ -1,0 +1,49 @@
+%box-graph {
+  background: #fff;
+  box-shadow: 0 10px 20px  rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  padding: 1rem;
+
+}
+
+.graphs {
+  display: grid;
+  align-items: baseline;
+
+  .total {
+    @extend %box-graph;
+    // max-width: 1000px;
+    font-size: 24px;
+    font-weight: bold;
+    grid-column: 1/3;
+  }
+  .chart-pie {
+    @extend %box-graph;
+    max-width: 600px; 
+    min-height: 400px;
+    height: 100%;
+    display: grid;
+  }
+
+  .chart-bar {
+    @extend %box-graph;
+    max-width: 600px;
+    min-height: 400px;
+    height: 100%;
+    display: grid;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    margin-bottom: 2rem;
+
+    .total {
+      grid-column: 1;
+    }
+    .chart-bar, .chart-pie {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+  }
+}

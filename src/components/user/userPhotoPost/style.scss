@@ -4,6 +4,10 @@
   gap: 2rem;
   margin-bottom: 2rem;
 
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+
   .image-input {
     margin-bottom: 1rem;
   }

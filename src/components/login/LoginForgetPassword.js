@@ -25,7 +25,7 @@ const LoginForget = () => {
   }
 
   return (
-    <section>
+    <section className='animeLeft'>
       <Head title="Esqueceu a senha?" />
       <h1 className='title'>Perdeu a senha?</h1>
       {data ? (
