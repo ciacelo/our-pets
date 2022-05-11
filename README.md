@@ -2,7 +2,7 @@
 
 ## A React app project
 
-### preview
+### Feed
 ![our-pets](https://user-images.githubusercontent.com/20484607/151277874-aaaab28f-acb0-4d45-b389-c017cebfadd4.png)
 
 
